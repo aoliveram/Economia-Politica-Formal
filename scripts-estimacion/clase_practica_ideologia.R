@@ -28,7 +28,7 @@ library(oc) # Poole et al 2012
 
 # esta base contiene votaciones de los representantes de naciones unidas
 
-UN <- read.csv(paste0(aqui,"/un.csv"),header=FALSE,strip.white=TRUE)
+UN <- read.csv(paste0(aqui,"/scripts-estimacion/un.csv"),header=FALSE,strip.white=TRUE)
 
 # preparamos la base de datos
 pais <- UN[,1]
@@ -85,7 +85,7 @@ plot.cutlines(result, lines=5) # puntos de corte de cada proyecto
 plot.angles(result) # histograma de los puntos de corte por angulos
 
 # entonces ahora hagamos lo mismo con datos de Chile
-senado <- read.csv(paste0(aqui,"/votos2014_2016_procesado.csv"),sep=";")
+senado <- read.csv(paste0(aqui,"/scripts-estimacion/votos2014_2016_procesado.csv"),sep=";")
 nombres <- senado[,1]
 senado <- senado[,2:NCOL(senado)]
 rc_senado <- rollcall(senado,             
@@ -271,7 +271,7 @@ lines(density(mcmc.df[,4]), col="green")
 
 library(basicspace)
 
-base <- read.csv(paste0(aqui,"/ejemplo_basicspace.csv"))
+base <- read.csv(paste0(aqui,"/scripts-estimacion/ejemplo_basicspace.csv"))
 #base <- read.csv("E:/CURSOS/EconPolFormal/2017/ejemplo_basicspace.csv")
 muestra <- sample(row.names(base), 1500)  # necesario x limite de algoritmo
 base <- base[row.names(base) %in% muestra,]
@@ -344,7 +344,7 @@ text(ideologia_tscores[8,1],0.3,row.names(ideologia_tscores)[8],cex = 0.7,srt = 
 # de todos modos es computacionalmente intensiva (i.e. lento)
 
 require(emIRT)
-data <- read.csv(paste0(aqui,"/20170127data_integrado_revisado_solovotosefectivos.csv"))
+data <- read.csv(paste0(aqui,"/scripts-estimacion/20170127data_integrado_revisado_solovotosefectivos.csv"))
 
 votes <- data[,2:NCOL(data)]
 votes <- as.matrix(votes)
